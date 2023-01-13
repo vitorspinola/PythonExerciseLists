@@ -1,4 +1,4 @@
-##Estrutura de repetição
+'''Estrutura de repetição'''
 
 def Q12_r():
 	num = 1000
@@ -76,3 +76,15 @@ def Q42_r():
 	print(f"Numbers in [0-25] = {set(nums_25)}\nNumbers in [26-50] = {set(nums_50)}\nNumbers in [51-75] = {set(nums_75)}\nNumbers in [76-100] = {set(nums_100)}\n")
 	
 		
+'''EXERCÍCIOS COM LISTAS'''
+
+def Q01_l():
+	counter = 0
+	lista = []
+	while counter <= 4:
+		number = int(input(f"Insira o {counter+1} número: "))
+		lista.append(number)
+		counter += 1
+	print(f"Lista de números: {lista}")
+
+Q01_l()
