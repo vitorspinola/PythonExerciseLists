@@ -100,4 +100,5 @@ def quicksort(arr):
 
 
 		
-
+arr = [5,6,8,9,65]
+pivot = arr[len(arr) // 2]
