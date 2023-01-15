@@ -87,18 +87,69 @@ def Q01_l():
 		counter += 1
 	print(f"Lista de números: {lista}")
 
-Q01_l()
 
-def quicksort(arr):
-    if len(arr) <= 1:
-        return arr
-    pivot = arr[len(arr) // 2]
-    left = [x for x in arr if x < pivot]
-    middle = [x for x in arr if x == pivot]
-    right = [x for x in arr if x > pivot]
-    return quicksort(left) + middle + quicksort(right)
+'''MAKING A QUICKSORT ALGORITHM AND LETTING CHAT GPT MAKE THE SAME ALGORITHM TO COMPARE'''
+def QuickSorts(arr):
+	
+	
+	
+	def quicksortCHAT_GPT(arr):
+		if len(arr) <= 1:
+			return arr
+		pivot = arr[len(arr) // 2]
+		left = [x for x in arr if x < pivot]
+		middle = [x for x in arr if x == pivot]
+		right = [x for x in arr if x > pivot]
+		return quicksortCHAT_GPT(left) + middle + quicksortCHAT_GPT(right)
 
+	
+	def QuickSortVitor(arr):
+		if len(arr) <= 1:
+			return arr
+		else:
+			pivot = arr[(len(arr) // 2)]
+			left = []
+			middle = []
+			right = []
+			for x in arr:
+				if x < pivot:
+					left.append(x)
+				elif x > pivot:
+					right.append(x)
+				elif x == pivot: 
+					middle.append(x)
+		return QuickSortVitor(left) + middle + QuickSortVitor(right)
+	return QuickSortVitor and quicksortCHAT_GPT	
 
-		
-arr = [5,6,8,9,65]
-pivot = arr[len(arr) // 2]
+def heapsort(arr):
+	n = len(arr)
+
+	# Build a max heap
+	for i in range(n, -1, -1):
+		heapify(arr, n, i)
+
+	# One by one extract elements
+	for i in range(n-1, 0, -1):
+		arr[i], arr[0] = arr[0], arr[i] # swap
+		heapify(arr, i, 0)
+	return arr
+
+def heapify(arr, n, i):
+	largest = i
+	l = 2 * i + 1
+	r = 2 * i + 2
+
+	# Compare with left child
+	if l < n and arr[i] < arr[l]:
+		largest = l
+
+	# Compare with right child
+	if r < n and arr[largest] < arr[r]:
+		largest = r
+
+	# Change root, if needed
+	if largest != i:
+		arr[i],arr[largest] = arr[largest],arr[i] # swap
+
+		# Heapify the affected sub-tree
+		heapify(arr, n, largest)
